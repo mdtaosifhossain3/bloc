@@ -1,0 +1,16 @@
+initialState: initially ja thke. like amr ekta 
+counter app ache. oitar value change korte chai .
+so my initial state will be 0,
+
+Takes a [Create] function that is responsible for creating
+the [Bloc] or [Cubit] and a [child] which will have access to the
+instance via BlocProvider.of(context). It is used as a dependency
+injection (DI) widget so that a single instance of a [Bloc] or [Cubit]
+can be provided to multiple widgets within a subtree.
+
+
+
+Bloc Vs Cubit:
+1. Cubit e kono events nei but bloc e ache 
+Ex: class CounterBloc extens Bloc<Event,state>{}
+Ex: class CounterCubit extens Cubit<state>{}

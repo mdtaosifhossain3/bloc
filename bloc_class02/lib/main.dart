@@ -1,7 +1,9 @@
-import 'package:bloc_class02/bg_changer.dart';
+import 'package:bloc_class02/bloc/favourite_app/favourite_app_bloc.dart';
 import 'package:bloc_class02/bloc/image_picker_bloc/image_picker_bloc.dart';
 import 'package:bloc_class02/bloc/switch_bloc/switch_bloc.dart';
-import 'package:bloc_class02/image_pick.dart';
+import 'package:bloc_class02/bloc/todo/todo_bloc.dart';
+import 'package:bloc_class02/favourite_app.dart';
+import 'package:bloc_class02/repo/favourite_app_repo.dart';
 import 'package:bloc_class02/utils/pick_image_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,14 +26,21 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => ImagePickerBloc(PickImageUtil()),
           ),
+          BlocProvider(
+            create: (context) => TodoBloc(),
+          ),
+          BlocProvider(
+            create: (context) => FavouriteAppBloc(FavouriteAppRepo()),
+          ),
         ],
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: const ImagePick(),
+          home: const FavouriteApp(),
         ));
   }
 }
